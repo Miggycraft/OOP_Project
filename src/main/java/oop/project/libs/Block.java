@@ -30,6 +30,7 @@ public class Block {
     // debugging purpose!! plz delete sa finals!
     public void printLot(){
         for (int i = 0; i < lots.size(); i++){
+            System.out.println("LOT[" + i + "]");
             System.out.println(lots.get(i).getDescription());
         }
     }

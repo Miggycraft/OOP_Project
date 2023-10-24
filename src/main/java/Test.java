@@ -64,7 +64,7 @@ public class Test {
                 addLot(i_block);
                 break;
             case 2:
-                removeLot();
+                removeLot(i_block);
                 break;
             case 3:
                 getLots(i_block);
@@ -72,7 +72,7 @@ public class Test {
             case 4:
                 break;
             case 5:
-                accessLot();
+                accessLot(i_block);
                 break;
         }
     }
@@ -91,15 +91,54 @@ public class Test {
         }
     }
     
-    public static void removeLot(){
-        
+    public static void removeLot(int i_block){
+        System.out.println("Remove which lot?");
+        int i = input.nextInt();
+        RE.getBlock(i_block).removeLot(i);
     }
     
     public static void getLots(int i_block){
         RE.getBlock(i_block).printLot();
     }
     
-    public static void accessLot(){
-        
+    public static void accessLot(int i_block){
+        System.out.println("Access which lot?");
+        int i_lot = input.nextInt();
+        System.out.println("DO WHAT WITH LOT[" + i_lot + "]"
+                + "\n[1]: Set Status (String)"
+                + "\n[2]: Set Price (Double)"
+                + "\n[3]: Set Size (Double)"
+                + "\n[4]: Exit");
+        int i = input.nextInt();
+        switch(i){
+            case 1:
+                setStatus(i_block ,i_lot);
+                break;
+            case 2:
+                setPrice(i_block, i_lot);
+                break;
+            case 3:
+                setSize(i_block, i_lot);
+                break;
+        }
     }
+
+    public static void setStatus(int i_block, int i_lot) {
+        System.out.println("New status will be:");
+        String s = input.next();
+        RE.getBlock(i_block).getLot(i_lot).setStatus(s);
+    }
+
+    public static void setPrice(int i_block, int i_lot) {
+        System.out.println("New price will be:");
+        double p = input.nextDouble();
+        RE.getBlock(i_block).getLot(i_lot).setPrice(p);
+    }
+
+    public static void setSize(int i_block, int i_lot) {
+        System.out.println("New size will be:");
+        double p = input.nextDouble();
+        RE.getBlock(i_block).getLot(i_lot).setSize(p);
+    }
+    
 }
