@@ -228,6 +228,7 @@ public class LotPanel extends javax.swing.JPanel {
         o.setSize(Double.parseDouble(jTextField2.getText()));
         o.setStatus(buttonGroup1.getSelection().getActionCommand());
         o.setType(jComboBox1.getSelectedItem().toString());
+        lf.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

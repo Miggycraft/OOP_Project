@@ -99,7 +99,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btn_editLot" min="-2" pref="48" max="-2" attributes="0"/>
-                  <EmptySpace pref="313" max="32767" attributes="0"/>
+                  <EmptySpace pref="312" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btn_removeBlock" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                       <Component id="btn_removeLot" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
