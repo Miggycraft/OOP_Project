@@ -159,7 +159,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(cbox_addLot, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_editLot, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, Short.MAX_VALUE)
                 .addGroup(panel_interactiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_removeBlock, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_removeLot, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -235,6 +235,8 @@ public class Main extends javax.swing.JFrame {
         Lot o = RE.getBlock(blockIndex).getLot(cbox_addLot.getSelectedIndex());
         lf.setLot(o, cbox_addLot.getSelectedIndex());
         lf.setVisible(true);
+//        
+//        lf.getLotPanel()
     }//GEN-LAST:event_btn_editLotActionPerformed
 
     private void cbox_addLotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbox_addLotActionPerformed

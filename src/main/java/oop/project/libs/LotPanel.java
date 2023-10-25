@@ -17,13 +17,22 @@ public class LotPanel extends javax.swing.JPanel {
      */
     
     // custom ko
+   
+    Lot o;
     
     public LotPanel() {
         
         initComponents();
+        System.out.println(jTextField1.getText());
+        jRadioButton1.setActionCommand("Unsold");
+        jRadioButton2.setActionCommand("Reserved");
+        jRadioButton3.setActionCommand("Sold");
+    
     }
     
+    
     public void customInit(Lot o, int lotIndex){
+        this.o = o;
         switch(o.getStatus()){
             case "Sold":
                 jRadioButton3.setSelected(true);
@@ -124,6 +133,11 @@ public class LotPanel extends javax.swing.JPanel {
         jLabel6.setText("Size (sq.m)");
 
         jTextField1.setText("jTextField1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jTextField2.setText("jTextField2");
 
@@ -137,13 +151,10 @@ public class LotPanel extends javax.swing.JPanel {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, 0)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton2)
-                                    .addComponent(jRadioButton1)
-                                    .addComponent(jRadioButton3)
-                                    .addComponent(jLabel3)))
+                            .addComponent(jRadioButton2)
+                            .addComponent(jRadioButton1)
+                            .addComponent(jRadioButton3)
+                            .addComponent(jLabel3)
                             .addComponent(jButton1))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,11 +218,19 @@ public class LotPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        o.setPrice(Double.parseDouble(jTextField1.getText()));
+        o.setSize(Double.parseDouble(jTextField2.getText()));
+        o.setStatus(buttonGroup1.getSelection().getActionCommand());
+        o.setType(jComboBox1.getSelectedItem().toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
