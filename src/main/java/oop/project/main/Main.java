@@ -3,18 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package oop.project.main;
+import java.util.Arrays;
+import oop.project.libs.*;
+import oop.project.lots.*;
 
 /**
  *
  * @author Miggy Olalo
  */
 public class Main extends javax.swing.JFrame {
-
+    static Real_Estate RE;
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
+        initProj();
+    }
+    
+    public static void initProj(){
+        RE = new Real_Estate();
     }
 
     /**
@@ -27,53 +35,62 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_interactive = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton6 = new javax.swing.JButton();
+        btn_addBlock = new javax.swing.JButton();
+        cbox_addBlock = new javax.swing.JComboBox<>();
+        cbox_addLot = new javax.swing.JComboBox<>();
+        btn_addLot = new javax.swing.JButton();
+        btn_removeBlock = new javax.swing.JButton();
+        btn_generteReport = new javax.swing.JButton();
+        btn_removeLot = new javax.swing.JButton();
+        btn_editLot = new javax.swing.JButton();
         panel_viewer = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 650));
         setResizable(false);
 
         panel_interactive.setPreferredSize(new java.awt.Dimension(400, 600));
 
-        jButton1.setText("Add Block");
-        jButton1.setPreferredSize(new java.awt.Dimension(100, 50));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_addBlock.setText("Add Block");
+        btn_addBlock.setPreferredSize(new java.awt.Dimension(75, 50));
+        btn_addBlock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_addBlockActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setPreferredSize(new java.awt.Dimension(100, 50));
-
-        jButton2.setText("Remove Block");
-
-        jButton3.setText("Add Lot");
-        jButton3.setPreferredSize(new java.awt.Dimension(100, 50));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        cbox_addBlock.setPreferredSize(new java.awt.Dimension(75, 50));
+        cbox_addBlock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                cbox_addBlockActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Generate Report");
-
-        jButton5.setText("Remove Lot");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton6.setText("Edit Lot");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        cbox_addLot.setPreferredSize(new java.awt.Dimension(75, 50));
+        cbox_addLot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                cbox_addLotActionPerformed(evt);
+            }
+        });
+
+        btn_addLot.setText("Add Lot");
+        btn_addLot.setPreferredSize(new java.awt.Dimension(75, 50));
+        btn_addLot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addLotActionPerformed(evt);
+            }
+        });
+
+        btn_removeBlock.setText("Remove Block");
+
+        btn_generteReport.setText("Generate Report");
+
+        btn_removeLot.setText("Remove Lot");
+
+        btn_editLot.setText("Edit Lot");
+        btn_editLot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editLotActionPerformed(evt);
             }
         });
 
@@ -81,52 +98,45 @@ public class Main extends javax.swing.JFrame {
         panel_interactive.setLayout(panel_interactiveLayout);
         panel_interactiveLayout.setHorizontalGroup(
             panel_interactiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_interactiveLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addGap(35, 35, 35))
             .addGroup(panel_interactiveLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panel_interactiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel_interactiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_generteReport, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_interactiveLayout.createSequentialGroup()
+                        .addComponent(btn_removeBlock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_removeLot, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_interactiveLayout.createSequentialGroup()
-                        .addGroup(panel_interactiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))
-                        .addGroup(panel_interactiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(30, 30, 30)
+                        .addComponent(btn_addBlock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbox_addBlock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_interactiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(panel_interactiveLayout.createSequentialGroup()
-                                .addGap(173, 173, 173)
-                                .addComponent(jButton6))
-                            .addGroup(panel_interactiveLayout.createSequentialGroup()
+                                .addComponent(btn_addLot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(77, 77, 77)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(cbox_addLot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btn_editLot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
         panel_interactiveLayout.setVerticalGroup(
             panel_interactiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_interactiveLayout.createSequentialGroup()
-                .addGroup(panel_interactiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_interactiveLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton6)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton5))
-                    .addGroup(panel_interactiveLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(panel_interactiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(63, 63, 63)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addGroup(panel_interactiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_addBlock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbox_addBlock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_addLot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbox_addLot, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_editLot, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, Short.MAX_VALUE)
+                .addGroup(panel_interactiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_removeBlock, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_removeLot, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_generteReport, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -165,18 +175,39 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_addBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addBlockActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        RE.addBlock(new Block());
+        cbox_addBlock.setModel(new javax.swing.DefaultComboBoxModel<>(RE.toArray()));
+//        System.out.println(cbox_addBlock.getModel().setSelectedItem()));
+    }//GEN-LAST:event_btn_addBlockActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_addLotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addLotActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        Block b = RE.getBlock(cbox_addBlock.getSelectedIndex());
+        int blockLength = b.getLots().size();
+        b.addLot(new LotFactory().createLot(-1, blockLength+1)); //default
+        cbox_addLot.setModel(new javax.swing.DefaultComboBoxModel<>(b.toArray()));
+    }//GEN-LAST:event_btn_addLotActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btn_editLotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editLotActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btn_editLotActionPerformed
 
+    private void cbox_addLotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbox_addLotActionPerformed
+        // TODO add your handling code here:x`
+
+    }//GEN-LAST:event_cbox_addLotActionPerformed
+
+    private void cbox_addBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbox_addBlockActionPerformed
+        // TODO add your handling code here:
+
+        Block b = RE.getBlock(cbox_addBlock.getSelectedIndex());
+
+        cbox_addLot.setModel(new javax.swing.DefaultComboBoxModel<>(b.toArray()));
+       
+    }//GEN-LAST:event_cbox_addBlockActionPerformed
+   
     /**
      * @param args the command line arguments
      */
@@ -203,7 +234,7 @@ public class Main extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -213,14 +244,14 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JButton btn_addBlock;
+    private javax.swing.JButton btn_addLot;
+    private javax.swing.JButton btn_editLot;
+    private javax.swing.JButton btn_generteReport;
+    private javax.swing.JButton btn_removeBlock;
+    private javax.swing.JButton btn_removeLot;
+    private javax.swing.JComboBox<String> cbox_addBlock;
+    private javax.swing.JComboBox<String> cbox_addLot;
     private javax.swing.JPanel panel_interactive;
     private javax.swing.JPanel panel_viewer;
     // End of variables declaration//GEN-END:variables
