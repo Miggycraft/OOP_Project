@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package oop.project.main;
-import java.util.Arrays;
+import javax.swing.ImageIcon;
+import javax.swing.text.DefaultCaret;
 import oop.project.libs.*;
 import oop.project.lots.*;
 
@@ -20,6 +21,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         initProj();
+        this.setIconImage(new ImageIcon(getClass().getResource("/house_icon.png")).getImage());
         lf = new LotFrame();
     }
     
@@ -27,6 +29,8 @@ public class Main extends javax.swing.JFrame {
         RE = new Real_Estate();
         GenerateData d = new GenerateData();
         RE = d.simpleGenerate();
+        ((DefaultCaret)jTextArea1.getCaret()).setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
+        
         
         if (RE.getBlocks().size() == 0)
                 return;
@@ -74,12 +78,15 @@ public class Main extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Real Estate");
         setPreferredSize(new java.awt.Dimension(800, 650));
         setResizable(false);
 
         panel_interactive.setPreferredSize(new java.awt.Dimension(400, 600));
 
         btn_addBlock.setText("Add Block");
+        btn_addBlock.setBorderPainted(false);
+        btn_addBlock.setFocusable(false);
         btn_addBlock.setPreferredSize(new java.awt.Dimension(75, 50));
         btn_addBlock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,12 +282,17 @@ public class Main extends javax.swing.JFrame {
 
     private void btn_removeBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removeBlockActionPerformed
         // TODO add your handling code here:
+        if(cbox_addBlock.getSelectedIndex() == -1) // cannot delete when empty
+            return;
         RE.removeBlock(cbox_addBlock.getSelectedIndex());
         refreshBlock();
     }//GEN-LAST:event_btn_removeBlockActionPerformed
 
     private void btn_removeLotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removeLotActionPerformed
         // TODO add your handling code here:
+        if(cbox_addLot.getSelectedIndex() == -1) // cannot delete when empty
+            return;
+        
         RE.getBlock(cbox_addBlock.getSelectedIndex()).removeLot(cbox_addLot.getSelectedIndex());
         refreshLot(false);
     }//GEN-LAST:event_btn_removeLotActionPerformed

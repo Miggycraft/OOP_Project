@@ -24,7 +24,6 @@ public class LotPanel extends javax.swing.JPanel {
     public LotPanel(LotFrame lf) {
         this.lf = lf;
         initComponents();
-        System.out.println(jTextField1.getText());
         jRadioButton1.setActionCommand("Unsold");
         jRadioButton2.setActionCommand("Reserved");
         jRadioButton3.setActionCommand("Sold");

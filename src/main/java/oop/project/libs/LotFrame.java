@@ -4,8 +4,8 @@
  */
 package oop.project.libs;
 
+import javax.swing.ImageIcon;
 import oop.project.lots.Lot;
-import oop.project.lots.PieLot;
 
 /**
  *
@@ -23,6 +23,8 @@ public class LotFrame extends javax.swing.JFrame {
     
     public LotFrame() {        
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/house_icon.png")).getImage());
+        this.setTitle("Lot Property");
     }
     
     public LotPanel getLotPanel(){
