@@ -35,6 +35,9 @@
   </Layout>
   <SubComponents>
     <Component class="oop.project.libs.LotPanel" name="lotPanel2">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new oop.project.libs.LotPanel(this)"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

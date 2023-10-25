@@ -19,6 +19,8 @@ public class LotFrame extends javax.swing.JFrame {
         lotPanel2.customInit(o, lotIndex);
     }
     
+    
+    
     public LotFrame() {        
         initComponents();
     }
@@ -32,7 +34,7 @@ public class LotFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lotPanel2 = new oop.project.libs.LotPanel();
+        lotPanel2 = new oop.project.libs.LotPanel(this);
 
         setTitle("LOT PROPERTY");
         setResizable(false);
