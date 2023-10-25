@@ -27,6 +27,15 @@ public class Main extends javax.swing.JFrame {
         RE = new Real_Estate();
     }
 
+    public void refreshLot(){
+        Block b = RE.getBlock(cbox_addBlock.getSelectedIndex());
+        cbox_addLot.setModel(new javax.swing.DefaultComboBoxModel<>(b.toArray()));
+    }
+
+    public void refreshBlock(){
+        cbox_addBlock.setModel(new javax.swing.DefaultComboBoxModel<>(RE.toArray()));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,6 +55,8 @@ public class Main extends javax.swing.JFrame {
         btn_removeLot = new javax.swing.JButton();
         btn_editLot = new javax.swing.JButton();
         panel_viewer = new javax.swing.JPanel();
+        txtarea_report = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 650));
@@ -84,10 +95,25 @@ public class Main extends javax.swing.JFrame {
         });
 
         btn_removeBlock.setText("Remove Block");
+        btn_removeBlock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_removeBlockActionPerformed(evt);
+            }
+        });
 
         btn_generteReport.setText("Generate Report");
+        btn_generteReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_generteReportActionPerformed(evt);
+            }
+        });
 
         btn_removeLot.setText("Remove Lot");
+        btn_removeLot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_removeLotActionPerformed(evt);
+            }
+        });
 
         btn_editLot.setText("Edit Lot");
         btn_editLot.addActionListener(new java.awt.event.ActionListener() {
@@ -144,15 +170,26 @@ public class Main extends javax.swing.JFrame {
 
         panel_viewer.setPreferredSize(new java.awt.Dimension(400, 600));
 
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        txtarea_report.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout panel_viewerLayout = new javax.swing.GroupLayout(panel_viewer);
         panel_viewer.setLayout(panel_viewerLayout);
         panel_viewerLayout.setHorizontalGroup(
             panel_viewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(panel_viewerLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(txtarea_report, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         panel_viewerLayout.setVerticalGroup(
             panel_viewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(panel_viewerLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(txtarea_report, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(238, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,16 +217,16 @@ public class Main extends javax.swing.JFrame {
     private void btn_addBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addBlockActionPerformed
         // TODO add your handling code here:
         RE.addBlock(new Block());
-        cbox_addBlock.setModel(new javax.swing.DefaultComboBoxModel<>(RE.toArray()));
-//        System.out.println(cbox_addBlock.getModel().setSelectedItem()));
+        // cbox_addBlock.setModel(new javax.swing.DefaultComboBoxModel<>(RE.toArray()));
+        refreshBlock();
     }//GEN-LAST:event_btn_addBlockActionPerformed
 
     private void btn_addLotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addLotActionPerformed
         // TODO add your handling code here:
         Block b = RE.getBlock(cbox_addBlock.getSelectedIndex());
-        int blockLength = b.getLots().size();
         b.addLot(new LotFactory().createLot(-1, cbox_addBlock.getSelectedIndex())); //default
-        cbox_addLot.setModel(new javax.swing.DefaultComboBoxModel<>(b.toArray()));
+//        cbox_addLot.setModel(new javax.swing.DefaultComboBoxModel<>(b.toArray()));
+        refreshLot();
     }//GEN-LAST:event_btn_addLotActionPerformed
 
     private void btn_editLotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editLotActionPerformed
@@ -210,9 +247,24 @@ public class Main extends javax.swing.JFrame {
 
         Block b = RE.getBlock(cbox_addBlock.getSelectedIndex());
 
-        cbox_addLot.setModel(new javax.swing.DefaultComboBoxModel<>(b.toArray()));
-       
+//        cbox_addLot.setModel(new javax.swing.DefaultComboBoxModel<>(b.toArray()));
+        refreshLot();
     }//GEN-LAST:event_cbox_addBlockActionPerformed
+
+    private void btn_generteReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generteReportActionPerformed
+        // TODO add your handling code here:
+        jTextArea1.setText(RE.generateReport());
+    }//GEN-LAST:event_btn_generteReportActionPerformed
+
+    private void btn_removeBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removeBlockActionPerformed
+        // TODO add your handling code here:
+        RE.removeBlock(cbox_addBlock.getSelectedIndex());
+    }//GEN-LAST:event_btn_removeBlockActionPerformed
+
+    private void btn_removeLotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removeLotActionPerformed
+        // TODO add your handling code here:
+        RE.getBlock(cbox_addBlock.getSelectedIndex()).removeLot(cbox_addLot.getSelectedIndex());
+    }//GEN-LAST:event_btn_removeLotActionPerformed
    
     /**
      * @param args the command line arguments
@@ -258,7 +310,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btn_removeLot;
     private javax.swing.JComboBox<String> cbox_addBlock;
     private javax.swing.JComboBox<String> cbox_addLot;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel panel_interactive;
     private javax.swing.JPanel panel_viewer;
+    private javax.swing.JScrollPane txtarea_report;
     // End of variables declaration//GEN-END:variables
 }

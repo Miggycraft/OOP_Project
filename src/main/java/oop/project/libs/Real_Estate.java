@@ -25,11 +25,15 @@ public class Real_Estate {
         for (int i = 0; i < blocks.size(); i++){
             output += "BLOCK " + i;
             output += "\n-----------------------------------------------------------------";
-            output += "\nLOT\t\t\tPRICE\t\t\tSIZE\t\t\tTYPE\t\t\tSTATUS";
+            output += "\nLOT    PRICE\tSIZE\tTYPE\tSTATUS";
             for (int j = 0; j < blocks.get(i).getLots().size(); j++){
                 tempLot = blocks.get(i).getLot(j);
-                output += "\n" + j + "\t\t\t" + tempLot.getPrice() + "\t\t\t" + tempLot.getSize() 
-                        + "sq.m\t\t" + tempLot.getType() + "\t\t\t" + tempLot.getStatus();
+                if (j > 9)
+                    output += "\n" + j + "       " + tempLot.getPrice() + "\t" + tempLot.getSize() 
+                        + "sq.m\t" + tempLot.getType() + "\t" + tempLot.getStatus();
+                else
+                    output += "\n" + j + "        " + tempLot.getPrice() + "\t" + tempLot.getSize() 
+                        + "sq.m\t" + tempLot.getType() + "\t" + tempLot.getStatus();
             }
             output += "\n\n";
         }
