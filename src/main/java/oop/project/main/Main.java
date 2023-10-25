@@ -23,17 +23,32 @@ public class Main extends javax.swing.JFrame {
         lf = new LotFrame();
     }
     
-    public static void initProj(){
+    public void initProj(){
         RE = new Real_Estate();
+        GenerateData d = new GenerateData();
+        RE = d.simpleGenerate();
+        
+        if (RE.getBlocks().size() == 0)
+                return;
+        refreshBlock();
+        refreshLot(false);
     }
 
-    public void refreshLot(){
+    public void refreshLot(boolean fromCheckbox){
+        int temp = cbox_addLot.getSelectedIndex();
         Block b = RE.getBlock(cbox_addBlock.getSelectedIndex());
         cbox_addLot.setModel(new javax.swing.DefaultComboBoxModel<>(b.toArray()));
+        if (temp != -1 && !fromCheckbox && temp < b.getLots().size() ){
+            cbox_addLot.setSelectedIndex(temp);
+        }
     }
 
     public void refreshBlock(){
+        int temp = cbox_addBlock.getSelectedIndex();
         cbox_addBlock.setModel(new javax.swing.DefaultComboBoxModel<>(RE.toArray()));
+        if (temp != -1 && temp < RE.getBlocks().size()){
+            cbox_addBlock.setSelectedIndex(temp);
+        }
     }
     
     /**
@@ -226,7 +241,7 @@ public class Main extends javax.swing.JFrame {
         Block b = RE.getBlock(cbox_addBlock.getSelectedIndex());
         b.addLot(new LotFactory().createLot(-1, cbox_addBlock.getSelectedIndex())); //default
 //        cbox_addLot.setModel(new javax.swing.DefaultComboBoxModel<>(b.toArray()));
-        refreshLot();
+        refreshLot(false);
     }//GEN-LAST:event_btn_addLotActionPerformed
 
     private void btn_editLotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editLotActionPerformed
@@ -250,7 +265,7 @@ public class Main extends javax.swing.JFrame {
         Block b = RE.getBlock(cbox_addBlock.getSelectedIndex());
 
 //        cbox_addLot.setModel(new javax.swing.DefaultComboBoxModel<>(b.toArray()));
-        refreshLot();
+        refreshLot(true);
     }//GEN-LAST:event_cbox_addBlockActionPerformed
 
     private void btn_generteReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generteReportActionPerformed
@@ -261,11 +276,13 @@ public class Main extends javax.swing.JFrame {
     private void btn_removeBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removeBlockActionPerformed
         // TODO add your handling code here:
         RE.removeBlock(cbox_addBlock.getSelectedIndex());
+        refreshBlock();
     }//GEN-LAST:event_btn_removeBlockActionPerformed
 
     private void btn_removeLotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removeLotActionPerformed
         // TODO add your handling code here:
         RE.getBlock(cbox_addBlock.getSelectedIndex()).removeLot(cbox_addLot.getSelectedIndex());
+        refreshLot(false);
     }//GEN-LAST:event_btn_removeLotActionPerformed
    
     /**

@@ -19,9 +19,10 @@ public class LotPanel extends javax.swing.JPanel {
     // custom ko
    
     Lot o;
+    LotFrame lf;
     
-    public LotPanel() {
-        
+    public LotPanel(LotFrame lf) {
+        this.lf = lf;
         initComponents();
         System.out.println(jTextField1.getText());
         jRadioButton1.setActionCommand("Unsold");
@@ -116,6 +117,11 @@ public class LotPanel extends javax.swing.JPanel {
         });
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Status");
 
@@ -231,6 +237,10 @@ public class LotPanel extends javax.swing.JPanel {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+       lf.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
