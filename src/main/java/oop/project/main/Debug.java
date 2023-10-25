@@ -1,8 +1,7 @@
 package oop.project.main;
 
 import oop.project.libs.LotFrame;
-import oop.project.lots.Lot;
-import oop.project.lots.PieLot;
+import oop.project.lots.*;
 
 public class Debug {
     /**
@@ -10,6 +9,7 @@ public class Debug {
      */
     public static void main(String args[]) {
         Lot testLot = new PieLot(1);
+        Lot testlot2 = new SquareLot(2);
         int testIndex = 2;
         LotFrame f = new LotFrame();
         f.setLot(testLot, testIndex);
@@ -43,5 +43,15 @@ public class Debug {
                 f.setVisible(true);
             }
         });
+        
+        new java.util.Scanner(System.in).nextLine();
+        System.out.println("Test");
+        f.setVisible(false);
+                new java.util.Scanner(System.in).nextLine();
+        System.out.println("Test");
+        f.setLot(testlot2, 69);
+        f.setVisible(true);
+                        new java.util.Scanner(System.in).nextLine();
+        System.out.println("Test");
     }
 }

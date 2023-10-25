@@ -14,7 +14,8 @@ public class Test {
                     + "\n[2]: Remove Block"
                     + "\n[3]: Get All Block"
                     + "\n[4]: Exit"
-                    + "\n[5]: Access Block");
+                    + "\n[5]: Access Block"
+                    + "\n[6]: Generate Report (real)");
             String s = input.nextLine();
             switch(s){
                 case "1":
@@ -32,8 +33,15 @@ public class Test {
                 case "5":
                     accessBlock();
                     break;
+                case "6":
+                    generateReport();
+                    break;
             }
         }
+    }
+    
+    public static void generateReport(){
+        System.out.println(RE.generateReport());
     }
     
     public static void addBlock(){
