@@ -44,6 +44,14 @@ public class Real_Estate {
         this.blocks = blocks;
     }
     
+    public String[] toArray(){
+        String[] output = new String[blocks.size()];
+        for (int i = 0; i < blocks.size(); i++) {
+            output[i] = "BLOCK " + i;
+        }
+        return output;
+    }
+    
     // debug lang plz delete sa finals
     public void printBlocks(){
         System.out.println("");
