@@ -56,7 +56,7 @@ public class Test {
     }
     
     public static void getAll(){
-            RE.printBlocks();
+            System.out.println(Arrays.toString(RE.toArray()));
     }
     
     public static void accessBlock(){
@@ -108,7 +108,7 @@ public class Test {
     }
     
     public static void getLots(int i_block){
-        RE.getBlock(i_block).printLot();
+        System.out.println(Arrays.toString(RE.getBlock(i_block).toArray()));
     }
     
     public static void accessLot(int i_block){
