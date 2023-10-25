@@ -15,8 +15,8 @@ public class LotFrame extends javax.swing.JFrame {
     /**
      * Creates new form LotFrame
      */
-    public void setLot(Lot o, int i){
-        lotPanel2.customInit(o, i);
+    public void setLot(Lot o, int lotIndex){
+        lotPanel2.customInit(o, lotIndex);
     }
     
     public LotFrame() {        
@@ -34,7 +34,6 @@ public class LotFrame extends javax.swing.JFrame {
 
         lotPanel2 = new oop.project.libs.LotPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOT PROPERTY");
         setResizable(false);
 

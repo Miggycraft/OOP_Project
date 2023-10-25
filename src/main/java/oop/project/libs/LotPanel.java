@@ -23,7 +23,7 @@ public class LotPanel extends javax.swing.JPanel {
         initComponents();
     }
     
-    public void customInit(Lot o, int i){
+    public void customInit(Lot o, int lotIndex){
         switch(o.getStatus()){
             case "Sold":
                 jRadioButton3.setSelected(true);
@@ -51,7 +51,7 @@ public class LotPanel extends javax.swing.JPanel {
                 jComboBox1.setSelectedIndex(3);
                 break;
         }
-        jLabel1.setText("LOT: " + i);
+        jLabel1.setText("LOT: " + lotIndex);
         jLabel2.setText("BLOCK: " + o.getBlockLocation());
     }
 

@@ -13,12 +13,14 @@ import oop.project.lots.*;
  */
 public class Main extends javax.swing.JFrame {
     static Real_Estate RE;
+    static LotFrame lf;
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
         initProj();
+        lf = new LotFrame();
     }
     
     public static void initProj(){
@@ -131,7 +133,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(cbox_addLot, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_editLot, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
                 .addGroup(panel_interactiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_removeBlock, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_removeLot, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -186,12 +188,16 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         Block b = RE.getBlock(cbox_addBlock.getSelectedIndex());
         int blockLength = b.getLots().size();
-        b.addLot(new LotFactory().createLot(-1, blockLength+1)); //default
+        b.addLot(new LotFactory().createLot(-1, cbox_addBlock.getSelectedIndex())); //default
         cbox_addLot.setModel(new javax.swing.DefaultComboBoxModel<>(b.toArray()));
     }//GEN-LAST:event_btn_addLotActionPerformed
 
     private void btn_editLotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editLotActionPerformed
         // TODO add your handling code here:
+        int blockIndex = cbox_addBlock.getSelectedIndex();
+        Lot o = RE.getBlock(blockIndex).getLot(cbox_addLot.getSelectedIndex());
+        lf.setLot(o, cbox_addLot.getSelectedIndex());
+        lf.setVisible(true);
     }//GEN-LAST:event_btn_editLotActionPerformed
 
     private void cbox_addLotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbox_addLotActionPerformed
