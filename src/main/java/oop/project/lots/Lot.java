@@ -2,14 +2,17 @@ package oop.project.lots;
 
 public class Lot implements Cloneable{
     private int blockLocation;
-    private double size;
+    private double size; // size in square feet
     private String type; // default
-    private double price;
+    private double price; // price
     private String status; // whether sold, reserved, or free..
     
     public Lot(int blockLocation){
         this.blockLocation = blockLocation;
-        this.type = "Unsold";
+        this.status = "Unsold";
+        this.type = "Default";
+        this.price = 0;
+        this.size = 100;
     }
     
     public String getDescription(){
