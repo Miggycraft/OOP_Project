@@ -4,6 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Real Estate App"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -123,8 +124,6 @@
         <Component class="javax.swing.JButton" name="btn_addBlock">
           <Properties>
             <Property name="text" type="java.lang.String" value="Add"/>
-            <Property name="borderPainted" type="boolean" value="false"/>
-            <Property name="focusable" type="boolean" value="false"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[75, 50]"/>
             </Property>
