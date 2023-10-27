@@ -1,2 +1,2 @@
 # OOP Project
-clone OR download as ZIP then paste nyo sa Documents > NetBeansProjects then open niyo in netbeans
+Requires Java 15 or higher to run, download at https://www.oracle.com/ph/java/technologies/downloads/#jdk21-windows
