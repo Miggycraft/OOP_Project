@@ -227,10 +227,10 @@ public class LotPanel extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
-        o.setPrice(Double.parseDouble(jTextField1.getText()));
-        o.setSize(Double.parseDouble(jTextField2.getText()));
-        o.setStatus(buttonGroup1.getSelection().getActionCommand());
-        o.setType(jComboBox1.getSelectedItem().toString());            
+            o.setPrice(Double.parseDouble(jTextField1.getText()));
+            o.setSize(Double.parseDouble(jTextField2.getText()));
+            o.setStatus(buttonGroup1.getSelection().getActionCommand());
+            o.setType(jComboBox1.getSelectedItem().toString());            
         }
         catch(NumberFormatException e){
             JOptionPane.showMessageDialog(new JFrame(), "Wrong number format!", 
