@@ -1,7 +1,7 @@
-package oop.project.lots;
+package com.oop.Lots;
 
-public class SquareLot extends Lot{
-    	public SquareLot(int blockLocation) {
+public class SquareParcel extends Lot{
+    	public SquareParcel(int blockLocation) {
 		super(blockLocation);
 		this.setType("Square");
 	}
@@ -15,7 +15,7 @@ public class SquareLot extends Lot{
         }
         
         @Override
-        public SquareLot clone() throws CloneNotSupportedException{
-            return (SquareLot)super.clone();
+        public SquareParcel clone() throws CloneNotSupportedException{
+            return (SquareParcel)super.clone();
     }
 }

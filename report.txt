@@ -1,0 +1,24 @@
+BLOCK 0
+-----------------------------------------------------------------
+LOT    PRICE	SIZE	TYPE	STATUS
+0        5645.0	649.0sq.m	Square	Reserved
+
+BLOCK 1
+-----------------------------------------------------------------
+LOT    PRICE	SIZE	TYPE	STATUS
+0        5600.0	182.0sq.m	Square	Reserved
+1        4394.0	648.0sq.m	Square	Reserved
+
+BLOCK 2
+-----------------------------------------------------------------
+LOT    PRICE	SIZE	TYPE	STATUS
+0        5133.0	919.0sq.m	Default	Sold
+1        3250.0	829.0sq.m	Square	Sold
+2        5330.0	172.0sq.m	Pie	Sold
+
+BLOCK 3
+-----------------------------------------------------------------
+LOT    PRICE	SIZE	TYPE	STATUS
+0        4047.0	926.0sq.m	Default	Sold
+1        1671.0	436.0sq.m	Default	Sold
+

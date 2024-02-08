@@ -1,7 +1,7 @@
-package oop.project.libs;
+package com.oop.Libs;
+import com.oop.Lots.Lot;
 import java.util.List;
 import java.util.ArrayList;
-import oop.project.lots.*;
 
 public class Real_Estate {
     private List<Block> blocks = new ArrayList<Block>();

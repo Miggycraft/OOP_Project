@@ -1,7 +1,7 @@
-package oop.project.lots;
+package com.oop.Lots;
 
-public class PieLot extends Lot{
-    	public PieLot(int blockLocation) {
+public class CircularParcel extends Lot{
+    	public CircularParcel(int blockLocation) {
 		super(blockLocation);
 		this.setType("Pie");
 	}
@@ -15,7 +15,7 @@ public class PieLot extends Lot{
         }
         
         @Override
-        public PieLot clone() throws CloneNotSupportedException{
-            return (PieLot)super.clone();
+        public CircularParcel clone() throws CloneNotSupportedException{
+            return (CircularParcel)super.clone();
     }
 }

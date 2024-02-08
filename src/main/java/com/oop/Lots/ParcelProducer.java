@@ -1,16 +1,16 @@
-package oop.project.lots;
+package com.oop.Lots;
 
-public class LotFactory implements iLotFactory{
+public class ParcelProducer implements ParcelFactory{
 
     @Override
     public Lot createLot(int i, int blockLocation) {
         switch(i){
             case 0: // Pie
-                return new PieLot(blockLocation);
+                return new CircularParcel(blockLocation);
             case 1: // Square
-                return new SquareLot(blockLocation);
+                return new SquareParcel(blockLocation);
             case 2: // Rectangle
-                return new RectangleLot(blockLocation);
+                return new RectangleParcel(blockLocation);
             default: // default
                 return new Lot(blockLocation);
         }

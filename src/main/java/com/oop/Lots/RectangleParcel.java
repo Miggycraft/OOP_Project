@@ -1,7 +1,7 @@
-package oop.project.lots;
+package com.oop.Lots;
 
-public class RectangleLot extends Lot{
-    	public RectangleLot(int blockLocation) {
+public class RectangleParcel extends Lot{
+    	public RectangleParcel(int blockLocation) {
 		super(blockLocation);
 		this.setType("Rectangle");
 	}
@@ -15,7 +15,7 @@ public class RectangleLot extends Lot{
         }
         
         @Override
-        public RectangleLot clone() throws CloneNotSupportedException{
-            return (RectangleLot)super.clone();
+        public RectangleParcel clone() throws CloneNotSupportedException{
+            return (RectangleParcel)super.clone();
     }
 }

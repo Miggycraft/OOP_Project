@@ -1,4 +1,4 @@
-package oop.project.lots;
+package com.oop.Lots;
 
 public class Lot implements Cloneable{
     private int blockLocation;

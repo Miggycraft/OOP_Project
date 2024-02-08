@@ -1,6 +1,6 @@
-package oop.project.libs;
+package com.oop.Libs;
 
-import oop.project.lots.*;
+import com.oop.Lots.Lot;
 import java.util.List;
 import java.util.ArrayList;
 
