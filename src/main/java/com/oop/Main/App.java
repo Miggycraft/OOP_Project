@@ -6,9 +6,9 @@ import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.text.DefaultCaret;
 import com.oop.Libs.Block;
-import com.oop.Libs.ChangeTheme;
-import com.oop.Libs.ChangeTheme;
-import com.oop.Libs.GenerateData;
+import com.oop.Utils.ChangeTheme;
+import com.oop.Utils.ChangeTheme;
+import com.oop.Utils.GenerateData;
 import com.oop.Libs.LotFrame;
 import com.oop.Libs.Real_Estate;
 import com.oop.Lots.Lot;
@@ -239,7 +239,7 @@ public class App extends javax.swing.JFrame {
 
         jMenuBar1.add(fileMenu);
 
-        editMenu.setText("Edit");
+        editMenu.setText("Options");
 
         editItem.setText("Edit Lot");
         editItem.addActionListener(new java.awt.event.ActionListener() {

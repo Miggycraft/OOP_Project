@@ -1,4 +1,4 @@
-package com.oop.Libs;
+package com.oop.Utils;
 
 import com.oop.Main.App;
 import javax.swing.JFrame;

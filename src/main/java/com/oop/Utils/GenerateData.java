@@ -1,4 +1,6 @@
-package com.oop.Libs;
+package com.oop.Utils;
+import com.oop.Libs.Block;
+import com.oop.Libs.Real_Estate;
 import com.oop.Lots.ParcelProducer;
 import java.util.Random;
 

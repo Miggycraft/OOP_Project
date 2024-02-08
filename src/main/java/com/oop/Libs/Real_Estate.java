@@ -55,13 +55,4 @@ public class Real_Estate {
         }
         return output;
     }
-    
-    // debug lang plz delete sa finals
-    public void printBlocks(){
-        System.out.println("");
-        for (int i = 0; i < blocks.size(); i++){
-            System.out.print("BLOCK[" + i + "], ");
-        }
-        System.out.println("");
-    }
 }
